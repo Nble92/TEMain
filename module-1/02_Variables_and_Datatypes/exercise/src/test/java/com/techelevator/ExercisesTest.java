@@ -140,7 +140,7 @@ public class ExercisesTest extends BaseSolution {
     @Test
     @Order(21)
     public void testSolution21() throws Exception {
-        assertEquals(1.98d, iTest.getDoubleResult(),0.01);
+        assertEquals(1.98d, iTest.getDoubleResult(), 0.01);
     }
 
     @Test
