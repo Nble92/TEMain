@@ -1,5 +1,7 @@
 package com.techelevator;
 
+import javax.swing.*;
+
 public class Exercise01_StoreOrders {
 
     /*
@@ -43,7 +45,9 @@ public class Exercise01_StoreOrders {
 	 createOrder() → [10, 40, 31, 41]
      */
     public int[] createOrder() {
-        return new int[] {};
+
+        return new int[]{SMALL_CHEESE, CALZONE, LARGE_PEPPERONI, SPAGHETTI_PIE};
+
     }
 
     /*
@@ -58,8 +62,16 @@ public class Exercise01_StoreOrders {
     getCalzoneSales([]) → 0
      */
     public int getCalzoneSales(int[] orders) {
-        return 0;
+        int orderCount = 0;
+
+        for (int i = 0; i < orders.length; i++) {
+            if (orders[i] == 40) {
+                orderCount += 1;
+            }
+        }
+        return orderCount;
     }
+
 
     /*
     Sally also needs to know the total revenue for all cheese pizzas sold on any given day.
@@ -76,6 +88,27 @@ public class Exercise01_StoreOrders {
     getCheesePizzaRevenue([11, 21]) → 0
      */
     public int getCheesePizzaRevenue(int[] orders) {
-        return 0;
+        int smallCount = 0;
+        int medCount = 0;
+        int lrgCount = 0;
+
+        int smallCost = 8;
+        int medCost = 11;
+        int lrgCost = 14;
+
+        for (int i = 0; i < orders.length; i++) {
+            if (orders[i] == 10) {
+                smallCount += 1;
+            }
+            if (orders[i] == 20) {
+                medCount += 1;
+            }
+            if (orders[i] == 30) {
+                lrgCount += 1;
+            }
+        }
+        return (smallCount * smallCost) + (medCount * medCost) + (lrgCount * lrgCost);
     }
-}
+
+    }
+
