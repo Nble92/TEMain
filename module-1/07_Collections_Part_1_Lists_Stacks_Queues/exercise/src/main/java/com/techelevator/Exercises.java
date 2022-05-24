@@ -16,7 +16,18 @@ public class Exercises {
 	 array2List( {"Left", "Right", "Forward", "Back"} )  ->  ["Left", "Right", "Forward", "Back"]
 	 */
 	public List<String> array2List(String[] stringArray) {
-		return null;
+
+		List<String> output = new ArrayList<>();
+		for (String element : stringArray) //element is the same as *Array[i]
+
+		{
+
+			output.add(element);
+
+		}
+
+
+		return output;
 	}
 
 	/*

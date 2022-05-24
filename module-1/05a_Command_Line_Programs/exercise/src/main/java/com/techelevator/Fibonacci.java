@@ -39,6 +39,9 @@ public class Fibonacci {
 				int[] range2 = new int[count + 1];
 				range2[count] = incValue;
 				System.out.println(incValue);
+				String s1 = "ALL MEN ARE CREATED EQUAL";
+				String s2 = s1.substring(16, 19);
+				System.out.println(s2);
 			}
 
 

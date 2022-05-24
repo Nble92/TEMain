@@ -8,6 +8,8 @@ public class Tutorial {
 
         // ***********  Step 1: Use the *new* operator to create Strings on the Heap  *************
 
+        char[] helloChars = new char[] {'h', 'e', 'l', 'l', 'o', '!'};
+        String greeting = new
 
 
 
