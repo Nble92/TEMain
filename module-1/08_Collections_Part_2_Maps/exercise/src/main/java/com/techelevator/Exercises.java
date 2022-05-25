@@ -1,6 +1,7 @@
 package com.techelevator;
 
 import java.util.HashMap;
+import java.util.Locale;
 import java.util.Map;
 
 public class Exercises {
@@ -34,8 +35,33 @@ public class Exercises {
 	 *
 	 */
 	public String animalGroupName(String animalName) {
-		return null;
-	}
+
+
+		Map<String, String> animals = new HashMap<>();
+
+
+		animals.put("rhino", "Crash");
+		animals.put("giraffe", "Tower");
+		animals.put("elephant", "Herd");
+		animals.put("lion", "Pride");
+		animals.put("pigeon", "Kit");
+		animals.put("flamingo", "Pat");
+		animals.put("deer", "Herd");
+		animals.put("dog", "Pack");
+		animals.put("crocodile", "Float");
+
+		if (animalName != null) {
+			String lowerCaseName = animalName.toLowerCase();
+			if (animals.containsKey(lowerCaseName)) {
+				String value = animals.get(lowerCaseName);
+				return value;
+
+			}
+		}
+
+			return "unknown";
+		}
+
 
 	/*
 	 * Given a String item number (a.k.a. SKU), return the discount percentage if the item is on sale.
@@ -74,7 +100,17 @@ public class Exercises {
 	 *
 	 */
 	public Map<String, Integer> robPeterToPayPaul(Map<String, Integer> peterPaul) {
-		return null;
+		int petersMoney = peterPaul.get("Peter");
+		int paulsMoney = peterPaul.get("Paul");
+		if (petersMoney > 0 && paulsMoney < 1000){
+			int moneyToPaul = petersMoney/2;
+			petersMoney -= moneyToPaul;
+			paulsMoney += moneyToPaul;
+			peterPaul.put("Peter", petersMoney);
+			peterPaul.put("Paul", paulsMoney);
+		}
+
+		return peterPaul;
 	}
 
 	/*
