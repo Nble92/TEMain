@@ -3,6 +3,7 @@ package com.techelevator;
 import java.util.HashMap;
 import java.util.Locale;
 import java.util.Map;
+import java.util.Objects;
 
 public class Exercises {
 
@@ -49,6 +50,8 @@ public class Exercises {
 		animals.put("deer", "Herd");
 		animals.put("dog", "Pack");
 		animals.put("crocodile", "Float");
+		animals.put("crow", "Murder");
+
 
 		if (animalName != null) {
 			String lowerCaseName = animalName.toLowerCase();
@@ -59,8 +62,8 @@ public class Exercises {
 			}
 		}
 
-			return "unknown";
-		}
+		return "unknown";
+	}
 
 
 	/*
@@ -86,8 +89,28 @@ public class Exercises {
 	 *
 	 */
 	public double isItOnSale(String itemNumber) {
-		return -1.0;
+		Map<String, Double> items = new HashMap<>();
+		items.put("kitchen4001", 0.20);
+		items.put("garage1070", 0.15);
+		items.put("livingroom", 0.10);
+		items.put("kitchen6073", 0.40);
+		items.put("bedroom3434", 0.60);
+		items.put("bath0073", 0.15);
+
+		Double zero = 0.00;
+
+		if (itemNumber != null) {
+			String lowerCaseName = itemNumber.toLowerCase();
+			if (items.containsKey(lowerCaseName)) {
+				Double value = items.get(lowerCaseName);
+				return value;
+
+			}
+		}
+
+		return zero;
 	}
+
 
 	/*
 	 * Modify and return the given Map as follows: if "Peter" has more than 0 money, transfer half of it to "Paul",
@@ -102,8 +125,8 @@ public class Exercises {
 	public Map<String, Integer> robPeterToPayPaul(Map<String, Integer> peterPaul) {
 		int petersMoney = peterPaul.get("Peter");
 		int paulsMoney = peterPaul.get("Paul");
-		if (petersMoney > 0 && paulsMoney < 1000){
-			int moneyToPaul = petersMoney/2;
+		if (petersMoney > 0 && paulsMoney < 1000) {
+			int moneyToPaul = petersMoney / 2;
 			petersMoney -= moneyToPaul;
 			paulsMoney += moneyToPaul;
 			peterPaul.put("Peter", petersMoney);
@@ -123,7 +146,22 @@ public class Exercises {
 	 *
 	 */
 	public Map<String, Integer> peterPaulPartnership(Map<String, Integer> peterPaul) {
-		return null;
+		int petersMoney = peterPaul.get("Peter");
+		int paulsMoney = peterPaul.get("Paul");
+		peterPaul.put("PeterPaulPartnership", 0);
+		int partnerMoney = peterPaul.get("PeterPaulPartnership");
+		if (petersMoney >= 5000 && paulsMoney >= 10000) {
+			int paulsMoneyTopartnership = paulsMoney / 4;
+			int petersMoneyTopartnership = petersMoney / 4;
+			petersMoney -= petersMoneyTopartnership;
+			paulsMoney -= paulsMoneyTopartnership;
+			partnerMoney += (paulsMoneyTopartnership + petersMoneyTopartnership);
+			peterPaul.put("Peter", petersMoney);
+			peterPaul.put("Paul", paulsMoney);
+			peterPaul.put("PeterPaulPartnership", partnerMoney);
+		}
+
+		return peterPaul;
 	}
 
 	/*
@@ -135,7 +173,14 @@ public class Exercises {
 	 * beginningAndEnding(["muddy", "good", "moat", "good", "night"]) → {"g": "d", "m": "t", "n": "t"}
 	 */
 	public Map<String, String> beginningAndEnding(String[] words) {
-		return null;
+
+		Map<String, String> begEnd = new HashMap<>();
+		for (String worts : words) {
+
+			begEnd.put(worts.substring(0, 1), worts.substring(worts.length() - 1));
+		}
+
+		return begEnd;
 	}
 
 	/*
@@ -151,7 +196,23 @@ public class Exercises {
 	 *
 	 */
 	public Map<String, Integer> wordCount(String[] words) {
-		return null;
+		Map<String, Integer> alexis = new HashMap<>();
+
+		for (String wdcnt : words) {
+			Integer count = 0;
+			alexis.put(wdcnt, count);
+			for (int i = 0; i < words.length; i++) {
+
+				if (wdcnt.equals(words[i])) {
+					count++;
+					alexis.put(wdcnt, count);
+
+				}
+
+			}
+
+		}
+		return alexis;
 	}
 
 	/*
@@ -166,7 +227,23 @@ public class Exercises {
 	 *
 	 */
 	public Map<Integer, Integer> integerCount(int[] ints) {
-		return null;
+		Map<Integer, Integer> alexis = new HashMap<>();
+
+		for (Integer wdcnt : ints) {
+			Integer count = 0;
+			alexis.put(wdcnt, count);
+			for (int i = 0; i < ints.length; i++) {
+
+				if (wdcnt == (ints[i])) {
+					count++;
+					alexis.put(wdcnt, count);
+
+				}
+
+			}
+
+		}
+		return alexis;
 	}
 
 	/*
@@ -179,7 +256,27 @@ public class Exercises {
 	 *
 	 */
 	public Map<String, Boolean> wordMultiple(String[] words) {
-		return null;
+		Map<String, Boolean> alexis = new HashMap<>();
+
+		for (String wdcnt : words) {
+			Integer count = 0;
+			Boolean yayNay = false;
+			alexis.put(wdcnt, yayNay);
+			for (int i = 0; i < words.length; i++) {
+
+				if (wdcnt.equals(words[i])) {
+					count++;
+					if (count >= 2) {
+						yayNay = true;
+						alexis.put(wdcnt, yayNay);
+
+					}
+
+				}
+			}
+
+		}
+		return alexis;
 	}
 
 	/*
@@ -193,9 +290,35 @@ public class Exercises {
 	 *
 	 */
 	public Map<String, Integer> consolidateInventory(Map<String, Integer> mainWarehouse,
-			Map<String, Integer> remoteWarehouse) {
-		return null;
+													 Map<String, Integer> remoteWarehouse) {
+
+		for (String keyz : mainWarehouse.keySet()) {
+			if (remoteWarehouse.containsKey(keyz)) {
+				mainWarehouse.put(keyz, (remoteWarehouse.get(keyz) + mainWarehouse.get(keyz)));
+			}
+
+		}
+		for (String remKeyz : remoteWarehouse.keySet()) {
+			if (!mainWarehouse.containsKey(remKeyz)) {
+				mainWarehouse.put(remKeyz, remoteWarehouse.get(remKeyz));
+			}
+		}
+
+		return mainWarehouse;
 	}
+
+
+//			for (Map.Entry<String,Integer>) {
+//
+//				if (remoteWarehouse.equals(Map<String,Integer>.entry(remoteWarehouse).getKey(j))) {
+//					mainWarehouse.put(Map<String,Integer>.entry(remoteWarehouse).getKey(j), skuShit + skuShit2);
+//
+//				}
+//				else mainWarehouse.put(Map.entry(remoteWarehouse).getKey(j),skuShit2);
+//			}
+//
+//		}
+
 
 	/*
 	 * Just when you thought it was safe to get back in the water --- last2Revisited!!!!
@@ -213,7 +336,37 @@ public class Exercises {
 	 *
 	 */
 	public Map<String, Integer> last2Revisited(String[] words) {
-		return null;
-	}
 
+		Map<String, Integer> countMap = new HashMap<>();
+
+		for (String werk : words) {
+			Integer count = 0;
+			if (werk != null) {
+				if (werk.length() < 3) {
+					countMap.put(werk, count);
+				}
+
+				String enders = werk.substring(werk.length() - 2);
+
+				for (int i = 0; i < werk.length(); i += 1) {
+					if (i + 2 >= werk.length()) {
+						countMap.put(werk, count);
+					} else if (werk.substring(i, i + 2).equals(enders)) {
+						count += 1;
+					}
+					countMap.put(werk, count);
+
+				}
+
+
+			}
+
+
+		}
+		return countMap;
+
+	}
 }
+
+
+
