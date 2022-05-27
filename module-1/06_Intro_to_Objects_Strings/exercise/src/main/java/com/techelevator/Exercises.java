@@ -424,6 +424,7 @@ public class Exercises<array> {
 		}
 
 
+		private static final
 
 
 
