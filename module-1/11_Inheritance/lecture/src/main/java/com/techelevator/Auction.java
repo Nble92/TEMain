@@ -5,7 +5,7 @@ import java.util.List;
 
 public class Auction {
 
-	private String itemForSale;
+	private String itemForSale; //each instance has its own set of variables
 	private Bid currentHighBid;
 	private List<Bid> allBids;
 
