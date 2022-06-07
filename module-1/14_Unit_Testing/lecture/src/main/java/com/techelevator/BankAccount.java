@@ -41,8 +41,11 @@ public class BankAccount implements Accountable {
     }
 
     public int transferTo(BankAccount destination, int amountToTransfer) {
-        this.withdraw(amountToTransfer);
-        destination.deposit(amountToTransfer);
+
+        if (amountToTransfer <= 500) {
+            this.withdraw(amountToTransfer);
+            destination.deposit(amountToTransfer);
+        }
         return balance;
     }
 

@@ -9,7 +9,7 @@ public class BankCustomer {
     private String phoneNumber;
     private List<Accountable> accounts;
 
-
+//ask Tom why this works
     public BankCustomer(){
         this.accounts = new ArrayList<>();
 
