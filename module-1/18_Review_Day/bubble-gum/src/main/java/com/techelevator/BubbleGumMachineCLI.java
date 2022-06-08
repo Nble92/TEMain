@@ -18,6 +18,7 @@ public class BubbleGumMachineCLI {
 	}
 
 	public void run() {
+		Scanner userInput = new Scanner(System.in);
 		boolean running = true;
 		while (running) {
 			String choice = (String) menu.getChoiceFromOptions(MAIN_MENU_OPTIONS);

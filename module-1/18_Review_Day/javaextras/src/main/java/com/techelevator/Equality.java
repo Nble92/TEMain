@@ -6,8 +6,6 @@ public class Equality {
 
     public static void main(String[] args) {
 
-
-
         LocalDate now = LocalDate.now();
 
         // two different objects with same info
