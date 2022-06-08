@@ -2,6 +2,7 @@ package com.techelevator;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.Objects;
 
 public class Person {
 
@@ -53,40 +54,63 @@ public class Person {
     }
 
 
-    /*
+//
+//    @Override
+//    public boolean equals(Object o) {
+//        // if the memory locations are the same return true
+//        if (this == o) {
+//            return true;
+//        }
+//
+//        // if the object being compared is null or is a different class type, return false
+//        if (o == null || getClass() != o.getClass()) {
+//            return false;
+//        }
+//
+//        // cast the Object to a Person
+//        Person person = (Person) o;
+//
+//        // compare the values that you want to take into account for equality
+//        return Objects.equals(firstName, person.firstName) && Objects.equals(lastName, person.lastName)
+//                && Objects.equals(birthDate, person.birthDate) && Objects.equals(ssn, person.ssn);
+//    }
+//
+//    @Override
+//    public int hashCode() {
+//        return Objects.hash(firstName, lastName, birthDate, ssn);
+//    }
+
+
     @Override
     public boolean equals(Object o) {
-        // if the memory locations are the same return true
-        if (this == o) {
-            return true;
-        }
-
-        // if the object being compared is null or is a different class type, return false
-        if (o == null || getClass() != o.getClass()) {
-            return false;
-        }
-
-        // cast the Object to a Person
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
         Person person = (Person) o;
-
-        // compare the values that you want to take into account for equality
-        return Objects.equals(firstName, person.firstName) && Objects.equals(lastName, person.lastName)
-                && Objects.equals(birthDate, person.birthDate) && Objects.equals(ssn, person.ssn);
+        return Objects.equals(firstName, person.firstName) && Objects.equals(lastName, person.lastName) && Objects.equals(birthDate, person.birthDate) && Objects.equals(ssn, person.ssn);
     }
 
     @Override
     public int hashCode() {
         return Objects.hash(firstName, lastName, birthDate, ssn);
     }
-     */
 
     @Override
     public String toString() {
-        return "Person{" +
+        return "sdlkfxlkjfczjfzxjlfdj Person{" +
                 "firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
-                ", birthDate=" + DateAndTimeUtils.getLocalDateAsString(birthDate, DateAndTimeUtils.BIRTHDATE_FORMAT) +
+                ", birthDate=" + birthDate +
                 ", ssn='" + ssn + '\'' +
                 '}';
     }
+
+    //    @Override
+//    public String toString() {
+//        return "Person{" +
+//                "firstName='" + firstName + '\'' +
+//                ", lastName='" + lastName + '\'' +
+//                ", birthDate=" + DateAndTimeUtils.getLocalDateAsString(birthDate, DateAndTimeUtils.BIRTHDATE_FORMAT) +
+//                ", ssn='" + ssn + '\'' +
+//                '}';
+//    }
 }
