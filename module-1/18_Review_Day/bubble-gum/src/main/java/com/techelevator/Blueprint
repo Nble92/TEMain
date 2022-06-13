@@ -1,0 +1,6 @@
+BubbleGumMachine Class
+Coin Slot(available coins) - Tells you how much money goes in
+List<GumBall> Gumballs (color, flavor)
+capacity
+Knob
+Dispenser

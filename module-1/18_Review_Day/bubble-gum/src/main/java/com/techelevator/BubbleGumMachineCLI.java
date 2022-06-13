@@ -9,10 +9,11 @@ public class BubbleGumMachineCLI {
     private static final String MAIN_MENU_OPTION_ADD_COINS = "Insert coins";
 	private static final String MAIN_MENU_OPTION_TURN_HANDLE = "Turn Handle";
 	private static final String MAIN_MENU_OPTION_EXIT = "Exit";
+	//finals are constants, they cant change
 	private static final String[] MAIN_MENU_OPTIONS = {MAIN_MENU_OPTION_ADD_COINS, MAIN_MENU_OPTION_TURN_HANDLE, MAIN_MENU_OPTION_EXIT};
 
 	private Menu menu;
-
+//passing in menu to the instance of BubbleGumMachine(Do we get it?)
 	public BubbleGumMachineCLI(Menu menu) {
 		this.menu = menu;
 	}
@@ -36,7 +37,7 @@ public class BubbleGumMachineCLI {
 	public static void main(String[] args) {
 		Menu menu = new Menu(System.in, System.out);
 
-
+		//to run the object, we create an instance fire
 		BubbleGumMachineCLI cli = new BubbleGumMachineCLI(menu);
 		cli.run();
 	}
