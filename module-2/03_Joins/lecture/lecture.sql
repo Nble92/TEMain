@@ -141,7 +141,17 @@ JOIN movie ON movie.movie_id = movie_actor.movie_id
 
 WHERE person_name LIKE 'GEORGE%';
 
-SELECT Distinct person_name, title
+SELECT person_name, title
 FROM movie
-JOIN person ON person.person_id = movie.director_id
-where director_id = actor_id
+JOIN movie_actor ON movie.movie_id = movie_actor.movie_id
+JOIN person ON person.person_id = movie_actor.actor_id
+where director_id = actor_id;
+
+
+SELECT COUNT (title) AS num_of_movies, person_name
+FROM person
+LEFT JOIN movie ON person.person_id = movie.director_id
+LEFT JOIN movie_actor ON person.person_id = movie_actor.actor_id
+WHERE person_name LIKE 'Grge %'
+GROUP BY person_name
+ORDER BY person_name;
