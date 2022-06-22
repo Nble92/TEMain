@@ -65,6 +65,9 @@ public class JdbcUserDao implements UserDao {
      */
     @Override
     public boolean isUsernameAndPasswordValid(String userName, String password) {
+        //THIS IS NOT A PARAMETERIZED QUERY! MEANING YOU'RE AT RISK OF CODE INJECTION!!!!
+        //FIX BY REMOVING THE CONCATENATION
+        //COMPANIES LOOK FOR SECURITY MINDED DEVs. BECOME ONE OR YOU'RE GONNA LOSE A COMPANY SOME MONEY!
         String sqlSearchForUser = "SELECT * FROM users WHERE UPPER(username) = '" + userName.toUpperCase() + "'";
 
         SqlRowSet results = jdbcTemplate.queryForRowSet(sqlSearchForUser);

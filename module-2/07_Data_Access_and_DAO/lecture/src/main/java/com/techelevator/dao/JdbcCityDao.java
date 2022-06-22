@@ -44,8 +44,11 @@ public class JdbcCityDao implements CityDao {
 
     @Override
     public City createCity(City city) {
+        //This entire variable represents a SQL query.
+        //Each question mark '?' represents a value to be inputted.
         String sql = "INSERT INTO city (city_name, state_abbreviation, population, area) " +
                      "VALUES (?, ?, ?, ?) RETURNING city_id;";
+        //Creates new city_id
         Integer newId = jdbcTemplate.queryForObject(sql, Integer.class,
                 city.getCityName(), city.getStateAbbreviation(), city.getPopulation(), city.getArea());
 

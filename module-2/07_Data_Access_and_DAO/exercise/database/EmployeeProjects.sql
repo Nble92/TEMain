@@ -100,3 +100,12 @@ INSERT INTO project_employee (project_id, employee_id) VALUES (6, 10);
 INSERT INTO project_employee (project_id, employee_id) VALUES (6, 11);
 
 COMMIT;
+
+SELECT *  from project
+
+SELECT employee.employee_id, department_id, first_name, last_name, birth_date, hire_date, project.project_id  
+				FROM employee 
+				join project_employee ON employee.employee_id = project_employee.employee_id  
+				join project ON project.project_id = project_employee.project_id 
+				
+				

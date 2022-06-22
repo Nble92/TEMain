@@ -20,11 +20,14 @@ public class USCitiesAndParksCLI {
     private final ParkDao parkDao;
 
     public static void main(String[] args) {
+        //connects to SQL DB
         BasicDataSource dataSource = new BasicDataSource();
         dataSource.setUrl("jdbc:postgresql://localhost:5432/UnitedStates");
         dataSource.setUsername("postgres");
         dataSource.setPassword("postgres1");
 
+        //This creates a new instance of CLI to make it runnable
+        //Using the RUN METHOD!!
         USCitiesAndParksCLI application = new USCitiesAndParksCLI(dataSource);
         application.run();
     }

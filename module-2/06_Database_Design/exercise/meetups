@@ -137,7 +137,11 @@ VALUES
 
 
 
-
+Select event_name, group_name, last_name
+From event
+join interest_group on interest_group.group_id = event.group_id
+join group_member ON interest_group.group_id = group_member.group_id
+join member on member.member_id = group_member.member_id;
 
 
 
