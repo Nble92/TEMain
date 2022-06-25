@@ -65,6 +65,6 @@ public interface TimesheetDao {
      * @param projectId the id of a project
      * @return the total billable hours
      */
-    double getBillableHours(int employeeId, int projectId);
+    double getBillableHours(int employeeId, int projectId, boolean billable);
 
 }

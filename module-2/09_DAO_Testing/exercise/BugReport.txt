@@ -1,43 +1,45 @@
 Bug 1
 -----
 Test that demonstrates problem:
-
+getTimesheetsByEmployeeId_returns_list_of_all_timesheets_for_employee()
 Expected output:
-
+teID.size = 2
 Actual output:
-
+teID.size = 1
 How did you fix this bug?
-
+replaced if statement with while statement within getTimesheetByEmployeeID
 
 Bug 2
 -----
 Test that demonstrates problem:
-
+ updated_timesheet_has_expected_values_when_retrieved()
 Expected output:
-
+updated billable field
 Actual output:
-
+billable field was not included in sql
 How did you fix this bug?
+added billable hours getter and sql statement
 
 
 Bug 3
 -----
 Test that demonstrates problem:
-
+getTimesheetsByProjectId_returns_list_of_all_timesheets_for_project
 Expected output:
-
+List of 3 entries
 Actual output:
-
+2 entries
 How did you fix this bug?
-
+changed sql WHERE statement from employeeID to projectID
 
 Bug 4
 -----
 Test that demonstrates problem:
-
+public void getBillableHours_returns_correct_total()
 Expected output:
-
+0 billable hours for timesheet 4
 Actual output:
-
+2 billable hours for timesheet 4
 How did you fix this bug?
-
+added if statement to getBillableHours() in JDBC timesheet
+to check if hours on TS are billable. Also added billable as an argument.
