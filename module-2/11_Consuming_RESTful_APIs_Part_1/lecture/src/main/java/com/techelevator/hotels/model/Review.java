@@ -3,6 +3,7 @@ package com.techelevator.hotels.model;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class Review {
+    //this matches the member variable below to the JSON property
     @JsonProperty("hotelID")
     private int hotelId;
     private String title;
@@ -11,6 +12,7 @@ public class Review {
     private int stars;
 
     public int getHotelId() {
+
         return hotelId;
     }
 
