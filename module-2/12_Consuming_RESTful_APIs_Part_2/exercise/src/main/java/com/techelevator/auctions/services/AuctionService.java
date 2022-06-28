@@ -60,7 +60,7 @@ public class AuctionService {
 
         try {
             restTemplate.delete(API_BASE_URL + auctionId);
-            isSuccessful = true
+            isSuccessful = true;
         } catch (RestClientResponseException e) {
 
             BasicLogger.log(e.getRawStatusCode() + " : " + e.getStatusText());
