@@ -8,8 +8,9 @@ import org.springframework.web.client.RestTemplate;
 public class HotelService {
 
     private static final String API_BASE_URL = "http://localhost:3000/";
-    //restTemplate: another spring framwork
+    //restTemplate: another spring framework
     //like jdbc
+    //can use GET, POST, PUT, DELETE requests
     private final RestTemplate restTemplate = new RestTemplate();
 
     public Hotel[] listHotels() {

@@ -3,9 +3,14 @@ package com.techelevator.hotels.services;
 import com.techelevator.hotels.model.Hotel;
 import com.techelevator.hotels.model.Reservation;
 import com.techelevator.util.BasicLogger;
+import org.springframework.http.HttpEntity;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.MediaType;
 import org.springframework.web.client.ResourceAccessException;
 import org.springframework.web.client.RestClientResponseException;
 import org.springframework.web.client.RestTemplate;
+
+import java.awt.*;
 
 
 public class HotelService {
@@ -18,24 +23,60 @@ public class HotelService {
      */
     public Reservation addReservation(Reservation newReservation) {
         // TODO: Implement method
-        return null;
-    }
 
+        HttpHeaders headers = new HttpHeaders();
+        headers.setContentType(MediaType.APPLICATION_JSON);
+        HttpEntity<Reservation> entity = new HttpEntity<>(newReservation, headers);
+
+        Reservation returnedReservation = null;
+        //Need TRY/CATCH
+        try {
+            returnedReservation = restTemplate.postForObject(API_BASE_URL + "reservations", entity, Reservation.class);
+        } catch (RestClientResponseException e) {
+
+            BasicLogger.log(e.getRawStatusCode() + " : " + e.getStatusText());
+        } catch (ResourceAccessException e) {
+            BasicLogger.log(e.getMessage());
+        }
+        return returnedReservation;
+    }
     /**
      * Updates an existing reservation by replacing the old one with a new
      * reservation
      */
     public boolean updateReservation(Reservation updatedReservation) {
         // TODO: Implement method
-        return false;
-    }
+        HttpHeaders headers = new HttpHeaders();
+        headers.setContentType(MediaType.APPLICATION_JSON);
+        HttpEntity<Reservation> entity = new HttpEntity<>(updatedReservation, headers);
 
+        boolean isSuccessful = false;
+        try {
+            restTemplate.put(API_BASE_URL + "reservations" + updatedReservation.getId(), entity);
+            isSuccessful = true;
+        } catch (RestClientResponseException e) {
+
+            BasicLogger.log(e.getRawStatusCode() + " : " + e.getStatusText());
+        } catch (ResourceAccessException e) {
+            BasicLogger.log(e.getMessage());
+        }
+        return isSuccessful;
+    }
     /**
      * Delete an existing reservation
      */
     public boolean deleteReservation(int id) {
         // TODO: Implement method
-        return false;
+        boolean isSuccessful = false;
+        try {
+            restTemplate.delete(API_BASE_URL + "reservations/" + id);
+        } catch (RestClientResponseException e) {
+
+            BasicLogger.log(e.getRawStatusCode() + " : " + e.getStatusText());
+        } catch (ResourceAccessException e) {
+            BasicLogger.log(e.getMessage());
+        }
+        return isSuccessful;
     }
 
     /* DON'T MODIFY ANY METHODS BELOW */

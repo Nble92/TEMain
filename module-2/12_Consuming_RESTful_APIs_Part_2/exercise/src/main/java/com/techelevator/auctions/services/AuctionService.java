@@ -18,17 +18,56 @@ public class AuctionService {
 
     public Auction add(Auction newAuction) {
         // place code here
-        return null;
+        HttpHeaders headers = new HttpHeaders();
+        headers.setContentType(MediaType.APPLICATION_JSON);
+        HttpEntity<Auction> entity = new HttpEntity<>(newAuction, headers);
+
+        Auction returnedAuction = null;
+        //Need TRY/CATCH
+        try {
+            returnedAuction = restTemplate.postForObject(API_BASE_URL, entity, Auction.class);
+        } catch (RestClientResponseException e) {
+
+            BasicLogger.log(e.getRawStatusCode() + " : " + e.getStatusText());
+        } catch (ResourceAccessException e) {
+            BasicLogger.log(e.getMessage());
+        }
+        return returnedAuction;
     }
 
     public boolean update(Auction updatedAuction) {
-        // place code here
-        return false;
+        HttpHeaders headers = new HttpHeaders();
+        headers.setContentType(MediaType.APPLICATION_JSON);
+        HttpEntity<Auction> entity = new HttpEntity<>(updatedAuction, headers);
+
+        boolean isSuccessful = false;
+        try {
+            restTemplate.put(API_BASE_URL + updatedAuction.getId(), entity);
+            isSuccessful = true;
+        } catch (RestClientResponseException e) {
+
+            BasicLogger.log(e.getRawStatusCode() + " : " + e.getStatusText());
+        } catch (ResourceAccessException e) {
+            BasicLogger.log(e.getMessage());
+        }
+        return isSuccessful;
+
     }
 
     public boolean delete(int auctionId) {
-        // place code here
-        return false;
+
+        boolean isSuccessful = false;
+
+        try {
+            restTemplate.delete(API_BASE_URL + auctionId);
+            isSuccessful = true
+        } catch (RestClientResponseException e) {
+
+            BasicLogger.log(e.getRawStatusCode() + " : " + e.getStatusText());
+        } catch (ResourceAccessException e) {
+            BasicLogger.log(e.getMessage());
+        }
+        return isSuccessful;
     }
 
     public Auction[] getAllAuctions() {
