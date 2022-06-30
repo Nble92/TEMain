@@ -9,6 +9,7 @@ import com.techelevator.reservations.model.Reservation;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -89,6 +90,17 @@ public class HotelController {
         return reservationDao.create(reservation, hotelID);
     }
 
+    //Update a reservation
+    @RequestMapping(path = "/hotels/reservations/{id}", method = RequestMethod.PUT)
+    public Reservation updated(@Valid @RequestBody Reservation reservation, @PathVariable int id) throws  ReservationNotFoundException{
+        return reservationDao.update(reservation, id);
+    }
+    @RequestMapping(path = "/hotels/reservations/{id}", method =  RequestMethod.DELETE)
+    public void delete(@PathVariable int id) throws ReservationNotFoundException{
+        reservationDao.delete(id);
+
+    }
+
     /**
      * /hotels/filter?state=oh&city=cleveland
      *
@@ -120,5 +132,7 @@ public class HotelController {
 
         return filteredHotels;
     }
+
+
 
 }

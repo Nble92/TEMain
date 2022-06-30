@@ -1,12 +1,21 @@
 package com.techelevator.reservations.model;
 
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotBlank;
+
 public class Reservation {
 
     private int id;
-    private int hotelID;
+   @Min(value=1, message = "The field 'hotelID' is required")
+   private int hotelID;
+   @NotBlank(message = "The field Full Name cannot be blank")
     private String fullName;
+   @NotBlank(message = "The field checkinDate cannot be blank")
     private String checkinDate;
+    @NotBlank(message = "The field checkoutDate cannot be blank")
     private String checkoutDate;
+    @Min(value = 1, message = "need at least one guest")
+    @Min(value = 8, message = "no more than 8 guests")
     private int guests;
 
     public Reservation(int id, int hotelID, String fullName, String checkinDate, String checkoutDate, int guests) {
