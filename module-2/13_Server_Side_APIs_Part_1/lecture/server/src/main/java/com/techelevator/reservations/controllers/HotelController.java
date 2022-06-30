@@ -73,7 +73,7 @@ public class HotelController {
     }
 
     //Filter hotels by query string
-    @RequestMapping(path = "/hotels/filer", method = RequestMethod.GET)
+    @RequestMapping(path = "/hotels/filter", method = RequestMethod.GET)
     public List<Hotel> filterByStateAndCity(@RequestParam String state, @RequestParam(required = false) String city) {
         List<Hotel> filteredHotel = new ArrayList<>();
         List<Hotel> hotels = list();
