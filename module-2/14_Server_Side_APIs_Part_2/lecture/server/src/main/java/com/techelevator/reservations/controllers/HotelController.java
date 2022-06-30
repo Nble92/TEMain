@@ -95,6 +95,7 @@ public class HotelController {
     public Reservation updated(@Valid @RequestBody Reservation reservation, @PathVariable int id) throws  ReservationNotFoundException{
         return reservationDao.update(reservation, id);
     }
+    @ResponseStatus(HttpStatus.NO_CONTENT)
     @RequestMapping(path = "/hotels/reservations/{id}", method =  RequestMethod.DELETE)
     public void delete(@PathVariable int id) throws ReservationNotFoundException{
         reservationDao.delete(id);
