@@ -38,9 +38,8 @@ public class AuctionController {
     }
 
 
-//For Git
 
-        //GET AUCTION BY ID
+        //GET AUCTION BY ID git change
         @RequestMapping(path = "/auctions/{id}", method = RequestMethod.GET)
         //WHENEVER A VARIABLE NEEDS TO BE ADDED, you need the path variable @thing
         public Auction auction ( @PathVariable int id){
