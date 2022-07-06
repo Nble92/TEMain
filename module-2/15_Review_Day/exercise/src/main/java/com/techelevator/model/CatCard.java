@@ -1,9 +1,14 @@
 package com.techelevator.model;
 
+import com.techelevator.services.RestCatFactService;
+import com.techelevator.services.RestCatPicService;
+
 import javax.validation.constraints.NotEmpty;
 
 public class CatCard {
 
+	//public CatFact fact;
+	//public CatPic pic;
 	public Long catCardId;
 	@NotEmpty
 	public String catFact;
@@ -11,6 +16,16 @@ public class CatCard {
 	public String imgUrl;
 	@NotEmpty
 	public String caption;
+
+
+	public CatCard() {
+
+	}
+
+	public CatCard(CatFact catFact, CatPic pic) {
+	this.catFact = catFact.getText();
+	imgUrl = pic.getFile();
+	}
 
 	public Long getCatCardId() {
 		return catCardId;

@@ -4,6 +4,6 @@ import com.techelevator.model.CatPic;
 
 public interface CatPicService {
 
-    CatPic getPic();
+    CatPic rdmPic();
 
 }

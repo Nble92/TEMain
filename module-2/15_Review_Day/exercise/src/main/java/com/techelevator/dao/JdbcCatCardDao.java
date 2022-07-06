@@ -2,14 +2,20 @@ package com.techelevator.dao;
 
 import com.techelevator.model.CatCard;
 import com.techelevator.model.CatCardNotFoundException;
+import com.techelevator.model.CatFact;
+import com.techelevator.model.CatPic;
+import com.techelevator.services.RestCatFactService;
+import com.techelevator.services.RestCatPicService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
 import org.springframework.stereotype.Component;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 @Component
 public class JdbcCatCardDao implements CatCardDao {
@@ -50,6 +56,14 @@ public class JdbcCatCardDao implements CatCardDao {
 	}
 
 	@Override
+	public CatCard random(CatFact fact, CatPic pic) {
+CatCard card = new CatCard(fact, pic);
+
+		return card;
+	}
+
+
+	@Override
 	public boolean update(long cardId, CatCard changedCard) {
 		String sql = "UPDATE catcards SET img_url = ?, fact = ?, caption = ? WHERE id = ? ";
 		return jdbcTemplate.update(sql, changedCard.getImgUrl(), changedCard.getCatFact(), changedCard.getCaption(), cardId) == 1;
@@ -67,9 +81,12 @@ public class JdbcCatCardDao implements CatCardDao {
 		return jdbcTemplate.update(sql,card.getImgUrl(),card.getCatFact(),card.getCaption()) == 1;
 	}
 
+
+
 	private boolean exists(long id) {
-		return jdbcTemplate.queryForObject("select * from catcards where id = ?", new Object[]{id}, boolean.class);
+		return Boolean.TRUE.equals(jdbcTemplate.queryForObject("select * from catcards where id = ?", new Object[]{id}, boolean.class));
 	}
+
 	
 	private CatCard mapRowToCard(SqlRowSet rs) {
 		CatCard cc = new CatCard();
