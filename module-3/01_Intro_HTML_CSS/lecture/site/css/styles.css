@@ -1,0 +1,36 @@
+/* This file is how you play with the styling of the webpage elements */
+
+img {
+    height: 200px;
+align-items: center;    
+}
+
+body{
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* You have to describe the how you want to style your headers */
+
+
+h1 {
+    font-size: 60px;
+    color: burlywood;
+    letter-spacing: 5px;
+    text-align: center;
+}
+
+h2 {
+    font-size: 45px;
+    text-align: center;
+
+    }
+
+    h3 {
+        font-size: 30px;
+        }
+
+p {
+
+text-align: center;
+
+}

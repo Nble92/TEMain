@@ -1,0 +1,43 @@
+img {
+    height: 200px;
+    width: auto;
+align-items: center;    
+}
+
+
+header{
+
+    text-align: center;
+
+
+}
+
+h2{
+
+
+    text-decoration: underline;
+}
+
+
+body{
+
+font-family: monospace;
+background-color: gray;
+
+}
+
+quote {
+
+font-style: italic;
+
+
+
+}
+
+form {
+
+background-color: indianred;
+
+
+
+}
