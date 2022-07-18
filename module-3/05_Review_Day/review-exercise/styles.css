@@ -3,9 +3,26 @@ body {
     background-color: #87CEEB;
 }
 
+/* Greater than symbols apply to children. Spaces apply to children and their 
+descendants */
 nav ul {
     margin: 0;
     padding: 20px 0 0 0;
+}
+
+main li {
+list-style: none;
+
+
+}
+
+a {
+
+text-decoration-line: none;
+font-weight: bold;
+
+
+
 }
 
 nav ul li {
@@ -33,11 +50,13 @@ main img {
     width: 35%;
 }
 
+/* Before Every list item in Main*/
 main li:before {
     content: '🍡';
     margin-left: -31px;
     padding-right: 8px;
 }
+
 
 main, section, footer {
     background-color: #ffffff;
@@ -54,4 +73,134 @@ main, section, footer {
     font-weight: bold;
     text-align: center;
     text-transform: uppercase;
+}
+
+/* # represents the id "." represents class*/
+#home {
+
+    gap: 10px;
+    display: grid;
+    grid-template-areas:
+    
+    "header nav"
+    "content content"
+    "race store"
+    "footer footer"
+    ;
+
+grid-template-columns: 1fr 1fr;
+
+}
+
+
+#contact {
+
+    gap: 10px;
+    display: grid;
+    grid-template-areas:
+    
+    "header nav"
+    "content content"
+    "race store"
+    "footer footer"
+    ;
+
+grid-template-columns: 1fr 1fr;
+
+}
+
+main#contact-us{
+
+grid-area: content;
+
+}
+
+
+header {
+grid-area: header;
+display: flex;
+
+}
+
+nav {
+
+    grid-area: nav;
+
+}
+
+main#homepage {
+
+grid-area: content;
+
+
+}
+
+#race {
+
+grid-area: race;
+display: grid;
+grid-template-areas: 
+
+
+"race-image race-header"
+"race-image race-description"
+;
+
+justify-items: center;
+}
+
+#race-image{
+
+
+grid-area: race-image;
+
+}
+
+#race-header{
+
+    grid-area: race-header;
+    justify-self: center;
+
+}
+
+#race-description{
+
+grid-area: race-description;
+
+
+
+
+grid-template-columns: 2fr 7fr;
+}
+
+#store {
+
+grid-area: store;
+
+display: flex;
+flex-direction: column;
+align-items: center;
+
+}
+
+footer{
+
+grid-area: footer;
+
+
+}
+
+nav ul{
+
+display: flex;
+flex-direction: row;
+justify-content: space-between;
+align-items: middle;
+
+}
+
+main {
+display: flex;
+align-items: center;
+
 }

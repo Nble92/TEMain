@@ -50,3 +50,132 @@ header img {
 #student-picture img{
     border-radius: 50%;
 }
+
+#main-grid {
+
+    display: grid;
+
+    grid-template-areas: 
+        "header header picture"
+        "quote quote picture"
+        "profile profile contact"
+        "experience experience experience"
+        ;
+
+    grid-template-columns: 1fr 1fr 1fr; 
+    row-gap: 20px;
+    column-gap: 50px;  
+
+    justify-items: center;
+}
+Small devices (portrait tablets and large phones, 600px and up)
+@media only screen and (min-width: 768px) {
+    #main-grid {
+       
+    display: grid;
+    grid-template-areas: 
+    "header header"
+    "quote picture"
+    "quote contact"
+    "profile profile"
+    "experience experience"
+    ;
+
+    grid-template-columns: 1fr 1fr;
+
+    row-gap: 20px;
+    column-gap: 35px;
+        
+}
+
+#headline {
+    grid-area: header;
+    
+}
+
+
+
+
+#student-contact {
+    grid-area: contact;
+    justify-items: center;
+
+}
+
+footer {
+    grid-area: footer;
+}
+
+#student-picture {
+    grid-area: picture;
+    align-content: center;
+
+
+}
+
+img {
+height: auto;
+width: auto;
+
+}
+
+#student-quote {
+
+    grid-area: quote;
+}
+
+#experience-grid { 
+grid-area: experience;
+display: grid;
+grid-template-columns: 1fr 1fr; 
+
+grid-template-areas: 
+
+"code code"
+"database database"
+"web design"
+}
+
+#experience-code {
+
+grid-area: code;
+
+}
+
+#experience-database {
+
+grid-area: database;
+}
+
+
+#experience-web {
+grid-area: web;
+
+}
+
+#experience-design {
+    grid-area: design;
+    
+    }
+
+    /* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+    ...
+  }
+  
+  
+  
+  /* Medium devices (landscape tablets, 768px and up) */
+  @media only screen and (min-width: 768px) {
+    ...
+  }
+  
+  /* Large devices (laptops/desktops, 992px and up) */
+  @media only screen and (min-width: 992px) {
+    ...
+  }
+  
+  /* Extra large devices (large laptops and desktops, 1200px and up) */
+  @media only screen and (min-width: 1200px) {
+    ...
+  }

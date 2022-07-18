@@ -12,7 +12,41 @@ function variables() {
   // Declares a variable where the value cannot be changed
   // Declares a variable those value can be changed
   // Declares a variable that will always be an array
+
+
+// Use let to declare varieables
+let myText = 'Hello World';
+
+let myText2 = 'hello text';
+
+let foo = 5;
+console.log(foo)
+
+foo = 'five';
+console.log(foo)
+
+//declares a varible that can't been changed
+const DAYS_PER_WEEK = 7;
+console.log("There are " + DAYS_PER_WEEK);
+
+let weekdays = [
+  "mon","tue",'wed','thurs', "Fri",6
+]
+
+console.log(weekdays);
+
+
+weekdays.push("sonic")
+console.log(weekdays);
+weekdays.shift();
+console.log(weekdays);
+
 }
+// const NOT_ALLOWED;
+
+
+
+
 
 /**
  * Functions can also accept parameters.
@@ -71,14 +105,33 @@ function objects() {
       "Samir Nagheenanajar",
       "Michael Bolton"
     ]
-  };
+  }
+
+//   toString: function() {
+
+// return `${this.lastName}, ${this.firstName}
+
+//   };
 
   // Log the object
+  console.log(person);
+    // Log the first and last name
+  console.log(person.firstName )
+    // Log each employee
 
-  // Log the first and last name
+    for(let i = 0; i < person.employees.length;i++){
 
-  // Log each employee
-}
+console.log(person.employees)
+
+
+person.employees.forEach(employee => console.log(employee))
+    }
+
+};
+
+
+ 
+
 
 /*
 ########################
