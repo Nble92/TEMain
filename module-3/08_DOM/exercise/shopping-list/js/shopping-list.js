@@ -36,11 +36,12 @@ groceries.forEach( (item) =>{
  * to every list item and add the class completed to each one
  */
 function markCompleted() {
-  const completed = document.querySelectorAll('li');
-  for (let i = 0; i < completed.classList.length; i++){
-  completed.classList.add('completed');
+  const completed = document.querySelectorAll('#groceries > li')
+  completed.forEach( (item) => {
+  item.classList.add('completed');
+})
   }
-}
+
 
 setPageTitle();
 
