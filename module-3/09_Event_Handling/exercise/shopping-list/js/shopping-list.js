@@ -36,3 +36,34 @@ function displayGroceries() {
     ul.appendChild(li);
   });
 }
+
+function markItemComplete(){
+const li = document.querySelector('li')
+li.classList.add('completed')
+
+}
+
+
+document.addEventListener('DOMContentLoaded', (event) => {
+
+//Sets page title
+setPageTitle()
+
+displayGroceries()
+
+const list = document.querySelectorAll('li');
+
+  list.forEach((item) => {
+    // when you click on a task mark it completed
+    item.addEventListener('click', () => {
+      if (!item.classList.contains('completed')) {
+        item.classList.add('completed');
+        item.querySelector('i').classList.add('completed');
+      }
+    });
+
+})
+const markItemComplete = document.querySelector( ('#groceries > li'))
+markItemComplete.classList.add('complete')
+})
+

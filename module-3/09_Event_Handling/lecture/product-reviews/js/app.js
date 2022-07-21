@@ -97,22 +97,23 @@ inputDesc.addEventListener('mouseleave', (event) => {
 })
 
 const btnToggleForm = document.getElementById('btnToggleForm')
-btnToggleForm.addEventListener('click', (event) => {
+btnToggleForm.addEventListener(('click'), (event) => {
 
   showHideForm()
 })
 
 
 const btnSaveReview = document.getElementById('btnSaveReview')
-btnToggleForm.addEventListener('click'), (event) => {
+btnSaveReview.addEventListener(('click'), (event) => {
 
 
 
   saveReview()
-}
+
 
 })
 
+})
 
 /**
  * Hide the description and show the text box.
