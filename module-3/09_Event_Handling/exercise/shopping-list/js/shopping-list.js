@@ -37,33 +37,73 @@ function displayGroceries() {
   });
 }
 
-function markItemComplete(){
-const li = document.querySelector('li')
-li.classList.add('completed')
+function markItemComplete() {
+  const li = document.querySelector('li')
+  li.classList.add('completed')
 
 }
 
+//Where the magic happens
 
 document.addEventListener('DOMContentLoaded', (event) => {
 
-//Sets page title
-setPageTitle()
+  //Sets page title
+  setPageTitle()
 
-displayGroceries()
+  displayGroceries()
 
-const list = document.querySelectorAll('li');
-
+  //Marks one item complete and incomplete
+  const list = document.querySelectorAll('li');
   list.forEach((item) => {
-    // when you click on a task mark it completed
+    // when you click on an item mark it completed
     item.addEventListener('click', () => {
       if (!item.classList.contains('completed')) {
         item.classList.add('completed');
-        item.querySelector('i').classList.add('completed');
+
       }
+    })
+  })
+
+      // when you click on a item mark it incomplete
+      const list2 = document.querySelectorAll('li');
+      list2.forEach((item) => {
+      item.addEventListener('dblclick', () => {
+       if (item.classList.contains('completed')){
+        item.classList.remove('completed');
+       
+      }
+      
     });
 
+  })
+
+    //Mark all complete/incomplete
+
+    const button = document.getElementById('toggleAll');
+    button.addEventListener('click', () => {
+      const allItems = document.querySelectorAll('li')
+      allItems.forEach((item) => {
+        if (!item.classList.contains('completed')){
+
+        item.classList.add('completed');
+        button.innerText =('Mark All Incomplete')
+        }
+        else {item.classList.remove('completed');
+        button.innerText =('Mark All Complete')}
+
+      })
+
+    });
+
+  
+
 })
-const markItemComplete = document.querySelector( ('#groceries > li'))
-markItemComplete.classList.add('complete')
-})
+
+
+
+
+
+
+
+
 
