@@ -1,10 +1,14 @@
 
 const PROBLEMS_PER_SET = 10
 let problemSet = [];
+const currentScore = document.querySelector(".currentScore")
+let newScore = 1
+
+let currentProblem = 0;
+let displayProb = currentProblem + 1
+const choices = document.querySelectorAll('li')
 
 
-let currentProblem = 1;
-let score = 0; 
 
 function generateProblemSet() {
 
@@ -20,10 +24,11 @@ const problem = {
 
     }
 
-
     problemSet.push(problem)
 }
 }
+let answer = problemSet[currentProblem].left * problemSet[currentProblem].right;
+
 
 /**
  * Utility function to generate a random number based on max
@@ -39,27 +44,65 @@ document.addEventListener("DOMContentLoaded", (event) => {
      generateProblemSet()
 
 //display current problem
-const display = document.querySelector('div')
-display.append(problemSet[0].left + " " + problemSet[0].operator + " " + problemSet[0].right)
+newProb(currentProblem);
 //display answer set
-const answers = document.querySelectorAll('li')
-answers.forEach( (ans) => {
 
-ans.append(getRandomNumber(10))
+//targets the list
+ getAnswers()
 
-})
+
 //display current problem number
 //display score
-const currentScore = document.querySelector(".currentScore > span")
+
+
 //event listeners to 'li's in the DOM - clicks
-answers.forEach((ans) => {
-    ans.addEventListener('click', generateProblemSet)
+choices.forEach((ans) => {
+    ans.addEventListener('click', () => {
+    displayProb += 1
+    document.querySelector('.currentProblem').innerText = displayProb
+    currentScore.innerText = newScore;
+    newScore += 1
+    currentProblem += 1;
 
-    currentScore.append('1')
-
+newProb(currentProblem)
+getAnswers()
 })
+})
+
+function newProb(val){
+    
+    const display = document.querySelector('div')
+
+display.innerText = ""
+display.append(problemSet[val].left + " " + problemSet[val].operator + " " + problemSet[val].right)
+}
+
 //click event listener for 'Start over'
 
 //toggle on show-hide class
+function getAnswers() {
+   let ansArr = ['A', 'B', 'C', 'D']
+   let ansArr2 = ansArr.map((choice) =>  { 
+       
+    if(choice == 'A'){
 
+        return answer
+    }
+    else {
+        
+        return getRandomNumber(81)
+
+}
 })
+
+
+    choices.forEach( (ans) => {
+    ans.innerText = ""
+    if
+    ans.append(ansArr2[getRandomNumber(4)])
+    })
+}
+}
+
+)
+
