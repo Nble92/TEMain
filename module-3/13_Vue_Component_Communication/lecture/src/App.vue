@@ -1,14 +1,14 @@
 <template>
   <div id="app" class="main">
-    <h1>Product Reviews for </h1>
-    <p class="description"></p>
+    <h1>Product Reviews for {{$store.state.name}} </h1>
+    <p class="description"> {{$store.state.description}}  </p>
     <div class="well-display">
       <average-summary />
-      <star-summary />
-      <star-summary />
-      <star-summary />
-      <star-summary />
-      <star-summary />
+      <star-summary :starRating="1"/>
+      <star-summary :starRating="2"/>
+      <star-summary :starRating="3"/>
+      <star-summary :starRating="4"/>
+      <star-summary :starRating="5"/>
     </div>
     <add-review />
     <review-list />

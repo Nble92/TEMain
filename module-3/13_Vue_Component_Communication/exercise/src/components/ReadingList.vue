@@ -1,6 +1,8 @@
 <template>
   <div class="book-container">
 
+    <!-- created bookcards with v-for -->
+<book-card></book-card>
   </div>
 </template>
 
