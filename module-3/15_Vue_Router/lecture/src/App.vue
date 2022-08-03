@@ -1,5 +1,6 @@
 <template>
-  <div></div>
+<!-- this will direct traffic to various components based on the path(like an API) -->
+ <router-view> </router-view> 
 </template>
 
 <script>

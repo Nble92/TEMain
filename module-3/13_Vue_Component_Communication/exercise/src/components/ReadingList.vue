@@ -1,16 +1,26 @@
 <template>
   <div class="book-container">
-
     <!-- created bookcards with v-for -->
-<book-card></book-card>
+<book-card 
+
+v-for="currentBook in $store.state.books"
+v-bind:key="currentBook.isbn"
+v-bind:book="currentBook"
+/>
   </div>
 </template>
 
 <script>
+import BookCard from "./BookCard"
 
 export default {
-    name: 'reading-list'
+    name: 'reading-list',
+    components: { 
+      BookCard
+},
+
 }
+
 </script>
 
 <style>
