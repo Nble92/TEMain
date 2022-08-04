@@ -5,12 +5,15 @@
       <div class="loading" v-if="isLoading">
         <img src="../assets/ping_pong_loader.gif" />
       </div>
+      <!-- v-if and v-else divs need to be next to eachother -->
+      <!-- V-show is better for performance -->
       <div
+      v-else
         class="board"
         v-for="board in boards"
         v-bind:key="board.id"
         v-bind:style="{ 'background-color': board.backgroundColor }"
-        v-else
+        
       >
         <router-link v-bind:to="{ name: 'Board', params: { id: board.id } }">
           {{ board.title }}

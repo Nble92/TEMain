@@ -18,7 +18,7 @@ import java.util.Optional;
 
 @RestController
 @CrossOrigin
-public class KanbanController {
+public class  KanbanController {
 
     private final KanbanDAO kanbanDAO;
     private final CatFactService catFact;
