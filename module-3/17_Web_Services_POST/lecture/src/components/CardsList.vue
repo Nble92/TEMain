@@ -5,24 +5,41 @@
       <router-link
         tag="button"
         class="btn addNewCard"
-        :to="{ name: 'AddCard', params: {boardID: this.boardId} }"
+        :to="{ name: 'AddCard', params: { boardID: this.boardId } }"
         v-if="!isLoading"
-      >Add New Card</router-link>
+        >Add New Card</router-link
+      >
       <button
         class="btn btn-cancel deleteBoard"
         v-if="!isLoading"
         v-on:click="deleteBoard"
-      >Delete Board</button>
+      >
+        Delete Board
+      </button>
     </div>
     <div class="loading" v-if="isLoading">
       <img src="../assets/ping_pong_loader.gif" />
     </div>
     <div v-else>
-      <div class="status-message error" v-show="errorMsg !== ''">{{errorMsg}}</div>
+      <div class="status-message error" v-show="errorMsg !== ''">
+        {{ errorMsg }}
+      </div>
       <div class="boards">
-        <board-column title="Planned" :cards="planned" :boardID="this.boardId" />
-        <board-column title="In Progress" :cards="inProgress" :boardID="this.boardId" />
-        <board-column title="Completed" :cards="completed" :boardID="this.boardId" />
+        <board-column
+          title="Planned"
+          :cards="planned"
+          :boardID="this.boardId"
+        />
+        <board-column
+          title="In Progress"
+          :cards="inProgress"
+          :boardID="this.boardId"
+        />
+        <board-column
+          title="Completed"
+          :cards="completed"
+          :boardID="this.boardId"
+        />
       </div>
     </div>
   </div>
@@ -31,6 +48,7 @@
 <script>
 import boardsService from "../services/BoardService";
 import BoardColumn from "@/components/BoardColumn";
+import BoardService from '../services/BoardService';
 
 export default {
   name: "cards-list",
@@ -69,7 +87,27 @@ export default {
         });
     },
     deleteBoard() {
-      
+
+      if(confirm("You Sure?"))
+      {
+              // BoardService.deleteBoard(this.boardId)same thing
+      BoardService.deleteBoard(this.boardId).then( (response) => {
+
+if (response.status === 200){
+alert("Board was deleted")
+this.$store.commit('DELETE_BOARD', this.boardId)
+// better to specify name instead of path
+this.$router.push({name: 'Home'})
+}
+      }).catch( (error) => {
+
+// TODO : handle error stuff
+
+console.log(error)
+
+})
+      })
+      }
     }
   },
   created() {

@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "serve": "npm-run-all --parallel json-server start",
+    "serve": "npm-run-all --parallel start",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
     "generate": "json-server ./db/generator.js",

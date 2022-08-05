@@ -1,6 +1,7 @@
 <template>
   <div class="home">
     <h1>Topic Message Board</h1>
+    
     <topic-list />
   </div>
 </template>

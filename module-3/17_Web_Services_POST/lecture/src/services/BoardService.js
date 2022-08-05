@@ -28,6 +28,16 @@ export default {
 
   deleteCard(cardID) {
     return http.delete(`/cards/${cardID}`);
+  },
+
+  addBoard(board) {
+    return http.post('/boards', board);
+  },
+
+  deleteBoard(boardID) {
+    // thats an alternative to string concatenation (Same as '/boards/' + boardID)
+    return http.delete(`/boards/${boardID}`);
   }
+
 
 }

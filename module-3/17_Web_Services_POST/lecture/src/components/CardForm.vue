@@ -62,7 +62,8 @@ export default {
         status: this.card.status,
         tag: this.card.tag,
         avatar: "https://randomuser.me/api/portraits/lego/1.jpg",
-        date: moment().format("MMM Do YYYY")
+        date: moment().format("YYYY-MM-DD")
+        // date: moment().toJSON,
       };
 
       if (this.cardID === 0) {
@@ -97,6 +98,7 @@ export default {
     cancelForm() {
       this.$router.push(`/board/${this.$route.params.boardID}`);
     },
+    
     handleErrorResponse(error, verb) {
       if (error.response) {
         this.errorMsg =

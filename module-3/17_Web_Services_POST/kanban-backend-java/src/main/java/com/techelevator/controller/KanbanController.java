@@ -48,7 +48,7 @@ public class KanbanController {
             return result;
         }
     }
-
+//shorthand for requestMapping
     @GetMapping("/cards/{id}")
     public Card getCard(@PathVariable long id) throws InterruptedException {
         Thread.sleep(1000); //Simulated loading time
@@ -69,8 +69,8 @@ public class KanbanController {
 
     @PostMapping("/cards")
     @ResponseStatus(HttpStatus.CREATED)
-    public Card postCard(@Valid @RequestBody Card newCard, @RequestParam("meow") Boolean meow) {
-        if (meow != null && meow) {
+    public Card postCard(@Valid @RequestBody Card newCard, @RequestParam("meow") Optional<Boolean> meow) {
+        if (meow.isPresent()) {
 
             String description =
                     String.format("%s\n%s", catFact.getFact().getText(), newCard.getDescription());
