@@ -15,7 +15,7 @@ import org.springframework.web.server.ResponseStatusException;
 import javax.validation.Valid;
 import java.util.List;
 import java.util.Optional;
-
+//https://www.jsonschema2pojo.org/ (for converting JSON to java
 @RestController
 //@CrossOrigin
 @CrossOrigin(origins = "http://localhost:8080")

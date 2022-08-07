@@ -39,3 +39,9 @@ export default {
   border: 0px;
 }
 </style>
+
+// create admin roles
+// application.properties will need updating
+// there are instructions on how to create DB in readme
+// finish last HW for a good reference
+?
